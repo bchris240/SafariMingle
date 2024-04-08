@@ -16,6 +16,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-
   useFindAndModify: false,
 });
 
+// Define routes
+app.use('/api/users', require('./routes/user-routes'));
+app.use('/api/thoughts', require('./routes/thought-routes'));
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
